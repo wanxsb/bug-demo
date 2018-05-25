@@ -23,9 +23,13 @@ const instructions = Platform.select({
 type Props = {};
 export default class App extends Component<Props> {
   clickMe () {
-     Modal.prompt('填写要绑定的手机号', null, (mobile) => {
-        Modal.alert('确认绑定手机号', '绑定后不可更改', [{text: '取消', onPress: () => {}},{text: '立即绑定', onPress: () => {console.log('bind')}}]
-      }, 'default', '', ['手机号'])
+     Modal.prompt('填写要绑定的手机号', null, (mobile) => { 
+      console.log('going to bind mobile ' + mobile);
+      Modal.alert('确认绑定手机号', '绑定后不可更改', [
+        {text: '取消', onPress: () => console.log('cancel')},
+        {text: '立即绑定', onPress: () => console.log(`binded mobile ${mobile}`)}
+      ]);
+    }, 'default', '', ['手机号']);
   }
   render() {
     return (
